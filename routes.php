@@ -45,3 +45,23 @@ Route::any('valid_ajout',function(Request $request)
 		return view('index_site');
 });
 
+
+
+//----------------USER---------------//
+ 
+ use Illuminate\Http\Request
+ use App/User;
+ 
+ //Vérification des données de connexion
+ Route::post('connexion', function(Request $request){
+	 if(Auth::attempt(['pseudo'=>$request->pseudo,'mdp'=>$request->mdp]))
+		 return view('index_site')//['message'=>'Vous etes maintenant connecte'.Auth::user()];
+	 else
+		 return view('index_site');
+ });
+ 
+ //Deconnexion
+ Route::any('deconnexion',function(){
+	 Auth::logout();
+	 return view('index_site');
+ });
