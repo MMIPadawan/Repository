@@ -19,9 +19,20 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
-use App\Recette;
-//référence à la classe Livre
+
+use App\Recette; // Référence à la classe Recette 
+
+
 use Illuminate\Http\Request;
+Route::get('/liste', function(){
+	// Récupération de la liste des recette en utilisant la méthode get de l'ORM Eloquent
+	$recettes = Recette::get();
+	//Affichage des recettes en mode debug
+	//foreach ($recettes as $recette) var_dump($recette->NOM);
+		# code...
+	return view('liste_recettes',['recettes'=>$recettes]);
+
+});
 
 Route::get('ajout',function()
 {
@@ -37,31 +48,32 @@ Route::any('valid_ajout',function(Request $request)
 	$recette->temps=$request->temps;
 	$recette->prix=$request->prix;
 	$recette->description=$request->description;
-	$recette->idsuser=$request->idsuser;
+	$recette->iduser=$request->iduser;
 	$recette->photo=$request->photo;
 	if($recette->save())
-		return view('index_site');
+		return view('indexAppli');
 	else
-		return view('index_site');
+		return view('indexAppli');
 });
 
+Route::get('inscription',function()
+{
+	return view('inscription');
+}
+);
 
+use App\Utilisateur; // Référence à la classe utilisateur
 
-//----------------USER---------------//
- 
- use Illuminate\Http\Request
- use App\Utilisateurs;
- 
- //Vérification des données de connexion
- Route::post('connexion', function(Request $request){
-	 if(Auth::attempt(['pseudo'=>$request->pseudo,'mdp'=>$request->mdp]))
-		 return view('index_site')//['message'=>'Vous etes maintenant connecte'.Auth::user()];
-	 else
-		 return view('index_site');
- });
- 
- //Deconnexion
- Route::any('deconnexion',function(){
-	 Auth::logout();
-	 return view('index_site');
- });
+Route::any('valid_inscription',function(Request $request)
+{
+	$utilisateur=new Utilisateur();
+	$utilisateur->nom= $request->nom;
+	$utilisateur->prenom=$request->prenom;
+	$utilisateur->pseudo=$request->pseudo;
+	$utilisateur->mdp=$request->mdp;
+	$utilisateur->iduser=$request->iduser;
+	if($utilisateur->save())
+		return view('indexAppli');
+	else
+		return view('indexAppli');
+});
