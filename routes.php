@@ -50,7 +50,7 @@ Route::any('valid_ajout',function(Request $request)
 //----------------USER---------------//
  
  use Illuminate\Http\Request
- use App/User;
+ use App/Utilisateurs;
  
  //Vérification des données de connexion
  Route::post('connexion', function(Request $request){
