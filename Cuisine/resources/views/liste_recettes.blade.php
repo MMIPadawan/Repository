@@ -5,28 +5,7 @@
 
 
 @foreach($recettes as $recette)
-  <!--<div class = "container">
-    
-      <div class="small card">
-        
-        <div class="col s12 m7">
-          <div class="card">
-            <div class="card-image">
-              <img src="images/{{$recette->PHOTO}}">
-              <span class="card-title">{{$recette->NOM}} </span>
-            </div>
-            <div class="card-content">
-              <p>blablablabla test</p>
-            </div>
-            <div class="card-action">
-              <a href="#">{{$recette->NOM}}  </br>   {{$recette->TEMPS}} </br>    {{$recette->PRIX}}</a>
-            </div>
-          </div>
-        </div>
-      
-            
-    </div>
-  </div>-->
+
 
 <div class = "container">
     
