@@ -9,12 +9,6 @@
        
       <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/font/roboto/Roboto-Regular.woff2" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/font/roboto/Roboto-Regular.ttf" rel="stylesheet">
-
-
-
-
-
-
       <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>

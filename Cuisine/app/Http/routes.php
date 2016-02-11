@@ -81,6 +81,12 @@ Route::get('/liste', function(){
 	//Affichage des recettes en mode debug
 	//foreach ($recettes as $recette) var_dump($recette->NOM);
 		# code...
+
+	$recettes=Recette::paginate(2);
+	
+	// permet d'éviter que l'on ne trouve pas l'URL
+	$recettes->setPath('');
+
 	return view('liste_recettes',['recettes'=>$recettes]);
 
 });

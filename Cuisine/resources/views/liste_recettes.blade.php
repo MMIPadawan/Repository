@@ -36,7 +36,11 @@
 
 </br>
 @endforeach
+<center><?php echo $recettes->render(); ?></center>
+
 @stop
+
+
 
 
 

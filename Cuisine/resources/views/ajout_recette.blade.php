@@ -87,16 +87,16 @@
 
 
       <p>
-        <input type="checkbox" class="filled-in" id="ail" value="ail" name="nom[]" />
-        <label for="ail">ail</label>
+        <input type="checkbox" class="filled-in" id="carottes" value="carottes" name="nom[]" />
+        <label for="carottes">carottes</label>
       </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="tomates" value="tomates" name="nom[]" />
-      <label for="tomates">tomates</label>
+      <input type="checkbox" class="filled-in" id="oignons" value="oignons" name="nom[]" />
+      <label for="oignons">oignons</label>
     </p>
    </div>
 
@@ -104,16 +104,16 @@
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="patates" value="patates" name="nom[]" />
-      <label for="patates">patates</label>
+      <input type="checkbox" class="filled-in" id="courgettes" value="courgettes" name="nom[]" />
+      <label for="courgettes">courgettes</label>
     </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="topinambours" value="topinambours" name="nom[]"/>
-      <label for="topinambours">topinambours</label>
+      <input type="checkbox" class="filled-in" id="potimarron" value="potimarron" name="nom[]"/>
+      <label for="potimarron">potimarron</label>
     </p>
    </div>
 
@@ -121,16 +121,16 @@
 
 
       <p>
-        <input type="checkbox" class="filled-in" id="ail" value="ail" name="nom[]" />
-        <label for="ail">ail</label>
+        <input type="checkbox" class="filled-in" id="poulet" value="poulet" name="nom[]" />
+        <label for="poulet">poulet</label>
       </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="tomates" value="tomates" name="nom[]" />
-      <label for="tomates">tomates</label>
+      <input type="checkbox" class="filled-in" id="boeuf" value="boeuf" name="nom[]" />
+      <label for="boeuf">boeuf</label>
     </p>
    </div>
 
@@ -138,16 +138,16 @@
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="patates" value="patates" name="nom[]" />
-      <label for="patates">patates</label>
+      <input type="checkbox" class="filled-in" id="sucre" value="sucre" name="nom[]" />
+      <label for="sucre">sucre</label>
     </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="topinambours" value="topinambours" name="nom[]"/>
-      <label for="topinambours">topinambours</label>
+      <input type="checkbox" class="filled-in" id="chocolat" value="chocolat" name="nom[]"/>
+      <label for="chocolat">chocolat</label>
     </p>
    </div>
 
@@ -155,16 +155,16 @@
 
 
       <p>
-        <input type="checkbox" class="filled-in" id="ail" value="ail" name="nom[]" />
-        <label for="ail">ail</label>
+        <input type="checkbox" class="filled-in" id="persil" value="persil" name="nom[]" />
+        <label for="persil">persil</label>
       </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="tomates" value="tomates" name="nom[]" />
-      <label for="tomates">tomates</label>
+      <input type="checkbox" class="filled-in" id="radis" value="radis" name="nom[]" />
+      <label for="radis">radis</label>
     </p>
    </div>
 
@@ -172,16 +172,16 @@
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="patates" value="patates" name="nom[]" />
-      <label for="patates">patates</label>
+      <input type="checkbox" class="filled-in" id="salade" value="salade" name="nom[]" />
+      <label for="salade">salade</label>
     </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="topinambours" value="topinambours" name="nom[]"/>
-      <label for="topinambours">topinambours</label>
+      <input type="checkbox" class="filled-in" id="escargots" value="escargots" name="nom[]"/>
+      <label for="escargots">escargots</label>
     </p>
    </div>
 
@@ -189,16 +189,16 @@
 
 
       <p>
-        <input type="checkbox" class="filled-in" id="ail" value="ail" name="nom[]" />
-        <label for="ail">ail</label>
+        <input type="checkbox" class="filled-in" id="ours polaire" value="ours polaire" name="nom[]" />
+        <label for="ours polaire">ours polaire</label>
       </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="tomates" value="tomates" name="nom[]" />
-      <label for="tomates">tomates</label>
+      <input type="checkbox" class="filled-in" id="lapin" value="lapin" name="nom[]" />
+      <label for="lapin">lapin</label>
     </p>
    </div>
 
@@ -206,18 +206,11 @@
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="patates" value="patates" name="nom[]" />
-      <label for="patates">patates</label>
+      <input type="checkbox" class="filled-in" id="mouton" value="mouton" name="nom[]" />
+      <label for="mouton">mouton</label>
     </p>
    </div>
 
-
-  	<div class="input-field col s6">			  
-    <p>
-      <input type="checkbox" class="filled-in" id="topinambours" value="topinambours" name="nom[]"/>
-      <label for="topinambours">topinambours</label>
-    </p>
-   </div>
 
 
 
