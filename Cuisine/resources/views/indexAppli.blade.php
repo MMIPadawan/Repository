@@ -29,7 +29,7 @@
         <li><a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/ajout" class="black-text">Ajouter une recette</a></li>
          <li><a href="mobile.html" class="black-text">Mon compte</a></li>
       <li><form>
-        <div class="input-field orange">
+        <div class="input-field red darken-4">
           <input id="search" type="search" required>
           <label for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>
@@ -39,7 +39,7 @@
     
    <ul class="side-nav" id="mobile-demo">
    <li><form>
-        <div class="input-field orange">
+        <div class="input-field red darken-4">
           <input id="search" type="search" required>
           <label for="search"><i class="material-icons">search</i></label>
           <i class="material-icons">close</i>

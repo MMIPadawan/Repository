@@ -47,10 +47,13 @@ Route::any('valid_inscription',function(Request $request)
 Route::post('connexion', function(Request $request){
 	echo $request->pseudo;
 	echo $request->password;
-	 if(Auth::attempt(['pseudo'=>$request->pseudo,'password'=>$request->password]))
+	 if(Auth::attempt(['pseudo'=>$request->pseudo,'password'=>$request->password])){
+		 ActiveSession();
 		 return view('indexAppli', ['Message'=>'Vous êtes bien connecté !']);//['message'=>'Vous etes maintenant connecte'.Auth::user()];
-	 else
+	 }
+	 else{
 		 return view('indexAppli', ['Message'=>'Echec connexion']);
+	 }
  }); 
  
  //Deconnexion
@@ -59,8 +62,11 @@ Route::post('connexion', function(Request $request){
 	 return view('indexAppli');
  });
 
+function ActiveSession(){
+	echo "sessionPUT";
+Session::put('pseudo', 'password');
+}
 
- 
 
 
 
