@@ -211,9 +211,13 @@
     </p>
    </div>
 
+   <br>
+
+   <!-- Nouvel Ingrédient -->
+
     <div class="input-field col s6">
-      <input name="nomR" id="nom" type="text" class="validate">
-      <label for="nomR">Nouvel ingrédient</label>
+      <input name="nomIng" id="nom" type="text" class="validate">
+      <label for="nomIng">Nouvel ingrédient</label>
     </div>
 
 
