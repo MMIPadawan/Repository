@@ -211,6 +211,10 @@
     </p>
    </div>
 
+    <div class="input-field col s6">
+      <input name="nomR" id="nom" type="text" class="validate">
+      <label for="nomR">Nouvel ingrédient</label>
+    </div>
 
 
 
@@ -230,11 +234,6 @@
 			</div>
       
 	</form>
-
-</div>
-
-
-
 	  
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

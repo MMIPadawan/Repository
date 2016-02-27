@@ -110,6 +110,9 @@ Route::get('ajout',function()
 Route::any('valid_ajout',function(Request $request)
 
 {
+	$ingredient=new Ingredient();
+	$ingredient->nom=$request->nomIng;
+
 	$recette=new Recette();
 	$recette->nom= $request->nomR;
 	$recette->temps=$request->temps;
