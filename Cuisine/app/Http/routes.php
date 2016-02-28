@@ -112,6 +112,10 @@ Route::any('valid_ajout',function(Request $request)
 {
 	$ingredientNew=new Ingredient();
 	$ingredientNew->nom=$request->nomIng;
+	//echo $ingredientNew;
+	$ingredientNew -> save();
+	$iding = DB::table('ingredient')->where('nom', $ingredientNew->nom)->pluck('iding');
+
 
 	$recette=new Recette();
 	$recette->nom= $request->nomR;
