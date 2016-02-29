@@ -155,12 +155,7 @@
    </div>
 
 
-    <div class="input-field col s6">        
-    <p>
-      <input type="checkbox" class="filled-in" id="creme fraiche " value="creme fraiche " name="ingredient[]" />
-      <label for="creme fraiche ">creme fraiche </label>
-    </p>
-   </div>
+
 
 
 
@@ -268,16 +263,23 @@
 
   <div class="input-field col s6">      
    <p>
-        <input type="checkbox" class="filled-in" id="chocolat " value="chocolat " name="ingredient[]" />
-        <label for="chocolat ">chocolat </label>
+        <input type="checkbox" class="filled-in" id="chocolat" value="chocolat" name="ingredient[]" />
+        <label for="chocolat">chocolat </label>
+      </p>
+   </div>
+
+     <div class="input-field col s6">      
+   <p>
+        <input type="checkbox" class="filled-in" id="pommes" value="pommes" name="ingredient[]" />
+        <label for="pommes">pommes</label>
       </p>
    </div>
 
 
     <div class="input-field col s6">        
     <p>
-      <input type="checkbox" class="filled-in" id="creme fraiche " value="creme fraiche " name="ingredient[]" />
-      <label for="creme fraiche ">creme fraiche </label>
+      <input type="checkbox" class="filled-in" id="creme fraiche" value="creme fraiche" name="ingredient[]" />
+      <label for="creme fraiche">creme fraiche </label>
     </p>
    </div>
 
