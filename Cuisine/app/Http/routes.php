@@ -107,10 +107,17 @@ Route::any('valid_ajout',function(Request $request)
 	$recette->description=$request->description;
 	$recette->iduser=$request->iduser;
 
- 	$ingredient=new Ingredient();
+ 	/*$ingredient=new Ingredient();
 	$ingredient->nom=$request->nomIng;
-	$ingredient->save();
- 
+
+	$ingredient->save();*/
+
+
+
+
+
+
+
 	if (Input::hasFile('photo'))
 	{	
 
@@ -136,6 +143,18 @@ Route::any('valid_ajout',function(Request $request)
 
 	$recette->save();
 	$idrecette = DB::table('recettes')->where('nom', $recette->nom)->pluck('idrecette');
+
+	$ingredientNew=new Ingredient();
+	$ingredientNew->nom=$request->nomIng;
+	//echo $ingredientNew;
+	$ingredientNew -> save();
+	$idING = DB::table('ingredient')->where('nom', $ingredientNew->nom)->pluck('iding');
+
+ 		$composeNewing= new Compose();
+		$composeNewing->idrecette=$idrecette;
+		$composeNewing->iding=$idING;
+		$composeNewing->save();
+
 
 	//Quand aucune case n'est cochée, à améliorer 
 	if($request->has('nom')==false){
