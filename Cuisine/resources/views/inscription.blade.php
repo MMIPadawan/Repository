@@ -3,10 +3,10 @@
 
 @section('section') <!-- contenu = liste des recettes -->
 
+{{$message or ""}}
 
 
-
-
+<body>
 <form action="valid_inscription" method="post" class="col s12">
 
 <div class="row col s12">
@@ -57,12 +57,14 @@
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <script type="text/javascript" src="js/materialize.min.js"></script>
-	<script>
+      <script type="text/javascript" src="js/script.js"></script>
+	<!--<script>
 		$( document ).ready(function(){
 			$(".button-collapse").sideNav();
 		
 		})
-	</script>
+
+	</script>-->
 	  </body>
   </html>
 

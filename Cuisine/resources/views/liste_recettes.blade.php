@@ -3,7 +3,11 @@
 @section('section') <!-- contenu = liste des recettes -->
 
 
+<html>
+  <body>
 
+  <h1> Bienvenue sur CooKing ! </h1>
+  </br>
 @foreach($recettes as $recette)
 
 
@@ -33,9 +37,18 @@
 </div>
 </div>
 </div>
-
+<script type="text/javascript" src="js/script.js"></script>
 </br>
 @endforeach
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/script.js"></script>
+
+
+  
+    </body>
+  </html>
 <center><?php echo $recettes->render(); ?></center>
 
 @stop

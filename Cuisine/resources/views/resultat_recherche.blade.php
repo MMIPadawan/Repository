@@ -25,18 +25,18 @@
      
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/liste" class="black-text">Les recettes</a></li>
-        <li><a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/recherche" class="black-text">Chercher une recette</a></li>
+        <li><a href="badges.html" class="black-text">Chercher une recette</a></li>
         <li><a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/ajout" class="black-text">Ajouter une recette</a></li>
-         <li><a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/compte" class="black-text">Mon compte</a></li>
+         <li><a href="mobile.html" class="black-text">Mon compte</a></li>
 
       </ul>
     
    <ul class="side-nav" id="mobile-demo">
    
         <li><a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/liste">Les recettes</a></li>
-        <li><a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/recherche">Chercher une recette</a></li>
+        <li><a href="badges.html">Chercher une recette</a></li>
        <a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/ajout"><li class="large material-icons">add</li>Ajouter une recette</a>
-        <a href="http://vsp149406.nfrance.com/~16_courcelle/cuisineL/public/compte"><li class="large material-icons">perm_identity</li>Mon compte</a>
+        <a href="mobile.html"><li class="large material-icons">perm_identity</li>Mon compte</a>
       </ul>
     </nav>
     </div>
@@ -46,67 +46,67 @@
 
 <body class="teal lighten-4"> 
 
-  
-@if(Auth::user())
 
-  <form action="deconnexion" method="post" class="row s12" >
-    <div class="row col s3 offset s3"
-      <input type="hidden" name="_token" value="{{csrf_token()}}">
-      <button class="btn waves-effect waves-light" type="submit" name="action"><i class="large material-icons">lock_open</i></button>
+@section('section') <!-- contenu = liste des recettes -->
+
+
+<html>
+  <body>
+  <h1>Résultats de la recherche :</h1>
+
+
+@foreach($recettes as $recette)
+
+
+<div class = "container">
+    
+  <div class="small card">
+  <div class = "row">
+    <div class="col s12 m12 l12" style="
+    background-size: cover;
+">
+  <div class="card" style="
+    height: 300px;
+">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="images/{{$recette->photo}}">
+
+
+
     </div>
-  </form>
-@else
-  
-  <div class="row">
-    <form action="connexion" method="post" class="row s12" >
-    <div class="row">
-        <div class="input-field col s3 offset s6 ">
-          <input id="pseudo" type="text" name="pseudo" class="validate">
-          <label for="text">Pseudo</label>
-    </div>
-    </div>
-    <div class="row">
-    <div class="input-field col s3 offset s6">
-          <input id="password" type="password" name="password" class="validate">
-          <label for="text">Mot de passe</label>
-    </div>
-    </div>
-      <div class="input-field col s3 offset s3">
-          <input type="hidden" name="_token" value="{{csrf_token()}}">
-      <button class="btn waves-effect waves-light col red darken-4" type="submit" name="action">Connexion</button>
-    </div>
-    </form>
-  </div>
-@endif
-
-  @section('section')
-
-
-    <div class="row">
-      <div class="col s12 m5">
-        <div class="card-panel teal">
-          <span class="white-text">{{$message or ""}}
-          </span>
-        </div>
-      </div>
-    </div>
-            
-
-
-
-
-  @show
-
-  
-
-
-  </body>
-
-      <!--Import jQuery before materialize.js-->
-
-      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <!--<script type="text/javascript" src="js/script.js"></script>-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{$recette->nom}}  {{$recette->prix}}</br>   {{$recette->temps}}    <i class="material-icons right">more_vert</i></span>
       
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{$recette->nom}}<i class="material-icons right">close</i></span>
+      <p>{{$recette->description}}</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript" src="js/script.js"></script>
+</br>
+@endforeach
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="js/script.js"></script>
+  <!--<script>
+    $( document ).ready(function(){
+      $(".button-collapse").sideNav();
+    
+    })
 
+  </script>-->
+    </body>
   </html>
+<!--<center><?php echo $recettes->render(); ?></center>-->
+
+@stop
+
+
+
+

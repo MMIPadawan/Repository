@@ -45,15 +45,11 @@ Route::any('valid_inscription',function(Request $request)
  
  //Vérification des données de connexion
 Route::post('connexion', function(Request $request){
-	echo $request->pseudo;
-	echo $request->password;
-	 if(Auth::attempt(['pseudo'=>$request->pseudo,'password'=>$request->password])){
-		 ActiveSession();
-		 return view('indexAppli', ['Message'=>'Vous êtes bien connecté !']);//['message'=>'Vous etes maintenant connecte'.Auth::user()];
-	 }
-	 else{
-		 return view('indexAppli', ['Message'=>'Echec connexion']);
-	 }
+
+	 if(Auth::attempt(['pseudo'=>$request->pseudo,'password'=>$request->password]))
+		 return view('indexAppli', ['message' =>'Vous êtes bien connecté !']);//['message'=>'Vous etes maintenant connecte'.Auth::user()];
+	 else
+		 return view('inscription', ['message' =>'Mauvais mot de passe ou pseudo ! Souhaitez vous vous inscrire ? ']);
  }); 
  
  //Deconnexion
@@ -62,11 +58,8 @@ Route::post('connexion', function(Request $request){
 	 return view('indexAppli');
  });
 
-function ActiveSession(){
-	echo "sessionPUT";
-Session::put('pseudo', 'password');
-}
 
+ 
 
 
 
@@ -82,14 +75,9 @@ Route::controllers([
 
 // Liste des recettes 
 Route::get('/liste', function(){
-	// Récupération de la liste des recette en utilisant la méthode get de l'ORM Eloquent
 	$recettes = Recette::get();
-	//Affichage des recettes en mode debug
-	//foreach ($recettes as $recette) var_dump($recette->NOM);
-		# code...
-
 	$recettes=Recette::paginate(2);
-	
+
 	// permet d'éviter que l'on ne trouve pas l'URL
 	$recettes->setPath('');
 
@@ -106,12 +94,11 @@ Route::get('ajout',function()
 );
 
 
-// quand on clique sur le bouton d'ajout 
+// quand on clique sur le bouton d'ajout de la recette// Rajout d'ingrédient et de recette
 Route::any('valid_ajout',function(Request $request)
 
 {
-	$ingredientNew=new Ingredient();
-	$ingredientNew->nom=$request->nomIng;
+
 
 	$recette=new Recette();
 	$recette->nom= $request->nomR;
@@ -120,50 +107,73 @@ Route::any('valid_ajout',function(Request $request)
 	$recette->description=$request->description;
 	$recette->iduser=$request->iduser;
 
-	//On récupère le fichier photo dans un objet file
-	$request->file('photo');
+ 	$ingredient=new Ingredient();
+	$ingredient->nom=$request->nomIng;
+	$ingredient->save();
+ 
+	if (Input::hasFile('photo'))
+	{	
 
-	//chemin du fichier
-	$path = Input::file('photo')->getRealPath();
+		//On récupère le fichier photo dans un objet file
+		$request->file('photo');
 
-	
-	$destinationPath='images';
+		//chemin du fichier
+		$path = Input::file('photo')->getRealPath();
+    	$destinationPath='images';
 
-	$name = Input::file('photo')->getClientOriginalName();
-
-
-	Input::file('photo')->move($destinationPath, $name);
+		$name = Input::file('photo')->getClientOriginalName();
 
 
+		Input::file('photo')->move($destinationPath, $name);
+		$recette->photo=$name;
 
-	$recette->photo=$name;
 
-	if($recette->save()) {
-		return view('indexAppli');
-	};
+	} 
 
+
+
+
+
+	$recette->save();
 	$idrecette = DB::table('recettes')->where('nom', $recette->nom)->pluck('idrecette');
 
-	/* Quand aucune case n'est cochée, à améliorer 
+	//Quand aucune case n'est cochée, à améliorer 
 	if($request->has('nom')==false){
-				//return view('indexAppli', ['Message'=>'il y a eu un problème dans la base de données !']);
-					return view('indexAppli');
-	}*/
-
-	foreach($request->input('nom') as $valeur){
+				return view('indexAppli', ['message'=>'Aucune case cochée ! Veuillez cocher au moins une case']);
+					//return view('indexAppli');
+	} else {
+		foreach($request->input('nom') as $valeur){
 		$ingredient=new Ingredient();
 		$ingredient->nom=$valeur;
-		$iding = DB::table('ingredient')->where('nom', $valeur)->pluck('iding');
 		
 		
 		$ingredient->save();
-		
+		$iding = DB::table('ingredient')->where('nom', $valeur)->pluck('iding');
+
+	
 		$compose= new Compose();
 		$compose->idrecette=$idrecette;
 		$compose->iding=$iding;
 		$compose->save();
 
 	}
+
+	}
+
+
+	
+
+	if($recette->save()) {
+		return view('indexAppli', ['message' =>'Recette bien ajoutée !']);
+
+	} else {
+		return view('indexAppli', ['message' =>'Attention ! Il y a eu un problème dans ajout de la recette']);
+
+
+	};
+
+
+
 	
 
 	
@@ -179,4 +189,65 @@ Route::get('inscription',function()
 	return view('inscription');
 }
 );
+
+// Vue de la recherche d'une recette
+
+Route::get('compte',function()
+{
+	return view('compte');
+
+
+}
+);
+
+// Vue de la recherche d'une recette
+
+Route::get('recherche',function()
+{
+	return view('recherche');
+
+
+}
+);
+
+
+// Recherche d'une recette en fonction des ingrédients 
+Route::any('valider_recherche', function(Request $request)
+{
+    
+	$ingredients = $request->input('ingredient');
+	$boutRequetes = array();
+
+
+
+	if (is_array($ingredients)) {
+   		 foreach($ingredients as $ing){
+
+     		array_push($boutRequetes,"ingredient.nom like '%".$ing."%'");
+
+     		 }
+   	 	}
+
+   	 	// si il n'y a pas de cases cochées ou pas de correspondance 
+	if(empty($boutRequetes)){
+			return view('indexAppli', ['message' =>'Aucune recette ne correspond à votre recherche.. ']);
+
+	} else {
+		
+		// Requête de recherche 
+	$recettesDispo = DB::select(DB::raw('SELECT recettes.nom, recettes.temps, recettes.prix, recettes.photo, recettes.description
+		FROM recettes 
+		JOIN compose 
+		ON recettes.idrecette = compose.idrecette
+		JOIN ingredient
+		ON compose.iding=ingredient.iding
+		WHERE '.implode(' OR ',$boutRequetes)));
+	
+
+	$data=array('recettes'=>$recettesDispo);
+	return view('resultat_recherche')->with($data);
+	}
+	
+
+});
 

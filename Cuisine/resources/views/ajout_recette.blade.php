@@ -1,6 +1,6 @@
  @extends('indexAppli')
 
-@section('section') <!-- contenu = liste des recettes -->
+@section('section') <!-- contenu = ajout des recettes -->
 
 	<h3>Ajout d'une recette</h3>
 	
@@ -25,8 +25,10 @@
 				
 				<div class="input-field col s12"> 
 				<textarea id="description" name="description" class="materialize-textarea" ></textarea>
-				<label for="description">Description (entrez les ingrédients indispensables à la recette et leurs quantités respectives)</label>
-				</div>
+				<label for="description">  <a class="btn tooltipped" data-position="right" data-delay="50" data-tooltip="(entrez les ingrédients indispensables à la recette et leurs quantités respectives)">Description</a>
+  </label>
+				
+        </div>
 
  
 
@@ -47,93 +49,18 @@
       </div>
     </div>
 
-<p><span class="teal-text darken-3">Veuillez <strong>cocher</strong> les ingrédients présents dans votre recette </span></p></br>
+<p><span class="teal-text darken-3">Veuillez <strong>cocher</strong> les ingrédients principaux présents dans votre recette </span></p></br>
 
-<div class="input-field col s6">			  
-
-
-      <p>
-        <input type="checkbox" class="filled-in" id="ail" value="ail" name="nom[]" />
-        <label for="ail">ail</label>
-      </p>
-   </div>
+<div class="input-field col s6">		
 
 
-  	<div class="input-field col s6">			  
-    <p>
-      <input type="checkbox" class="filled-in" id="tomates" value="tomates" name="nom[]" />
-      <label for="tomates">tomates</label>
-    </p>
-   </div>
-
-
-
-  	<div class="input-field col s6">			  
-    <p>
-      <input type="checkbox" class="filled-in" id="patates" value="patates" name="nom[]" />
-      <label for="patates">patates</label>
-    </p>
-   </div>
-
-
-  	<div class="input-field col s6">			  
-    <p>
-      <input type="checkbox" class="filled-in" id="topinambours" value="topinambours" name="nom[]"/>
-      <label for="topinambours">topinambours</label>
-    </p>
-   </div>
-
-   <div class="input-field col s6">			  
-
+<!-- Checkboxes des ingrédients -->
 
       <p>
-        <input type="checkbox" class="filled-in" id="carottes" value="carottes" name="nom[]" />
-        <label for="carottes">carottes</label>
+        <input type="checkbox" class="filled-in" id="farine" value="farine" name="nom[]" />
+        <label for="farine">farine</label>
       </p>
    </div>
-
-
-  	<div class="input-field col s6">			  
-    <p>
-      <input type="checkbox" class="filled-in" id="oignons" value="oignons" name="nom[]" />
-      <label for="oignons">oignons</label>
-    </p>
-   </div>
-
-
-
-  	<div class="input-field col s6">			  
-    <p>
-      <input type="checkbox" class="filled-in" id="courgettes" value="courgettes" name="nom[]" />
-      <label for="courgettes">courgettes</label>
-    </p>
-   </div>
-
-
-  	<div class="input-field col s6">			  
-    <p>
-      <input type="checkbox" class="filled-in" id="potimarron" value="potimarron" name="nom[]"/>
-      <label for="potimarron">potimarron</label>
-    </p>
-   </div>
-
-   <div class="input-field col s6">			  
-
-
-      <p>
-        <input type="checkbox" class="filled-in" id="poulet" value="poulet" name="nom[]" />
-        <label for="poulet">poulet</label>
-      </p>
-   </div>
-
-
-  	<div class="input-field col s6">			  
-    <p>
-      <input type="checkbox" class="filled-in" id="boeuf" value="boeuf" name="nom[]" />
-      <label for="boeuf">boeuf</label>
-    </p>
-   </div>
-
 
 
   	<div class="input-field col s6">			  
@@ -144,10 +71,19 @@
    </div>
 
 
+
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="chocolat" value="chocolat" name="nom[]"/>
-      <label for="chocolat">chocolat</label>
+      <input type="checkbox" class="filled-in" id="beurre" value="beurre" name="nom[]" />
+      <label for="beurre">beurre</label>
+    </p>
+   </div>
+
+
+  	<div class="input-field col s6">			  
+    <p>
+      <input type="checkbox" class="filled-in" id="oeufs" value="oeufs" name="nom[]"/>
+      <label for="oeufs">œufs</label>
     </p>
    </div>
 
@@ -155,16 +91,78 @@
 
 
       <p>
-        <input type="checkbox" class="filled-in" id="persil" value="persil" name="nom[]" />
-        <label for="persil">persil</label>
+        <input type="checkbox" class="filled-in" id="chocolat " value="chocolat " name="nom[]" />
+        <label for="chocolat ">chocolat </label>
       </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="radis" value="radis" name="nom[]" />
-      <label for="radis">radis</label>
+      <input type="checkbox" class="filled-in" id="creme fraiche " value="creme fraiche " name="nom[]" />
+      <label for="creme fraiche ">creme fraiche </label>
+    </p>
+   </div>
+
+
+
+  	<div class="input-field col s6">			  
+    <p>
+      <input type="checkbox" class="filled-in" id="sel" value="sel" name="nom[]" checked="checked" />
+      <label for="sel">sel</label>
+    </p>
+   </div>
+
+
+  	<div class="input-field col s6">			  
+    <p>
+      <input type="checkbox" class="filled-in" id="poivre" value="poivre" name="nom[]"/>
+      <label for="poivre">poivre</label>
+    </p>
+   </div>
+
+   <div class="input-field col s6">			  
+
+
+      <p>
+        <input type="checkbox" class="filled-in" id="pate" value="poulet" name="nom[]" />
+        <label for="pate">pâte brisée</label>
+      </p>
+   </div>
+
+
+  	<div class="input-field col s6">			  
+    <p>
+      <input type="checkbox" class="filled-in" id="lait" value="lait" name="nom[]" />
+      <label for="lait">lait</label>
+    </p>
+   </div>
+
+
+
+
+
+  	<div class="input-field col s6">			  
+    <p>
+      <input type="checkbox" class="filled-in" id="riz" value="riz" name="nom[]"/>
+      <label for="riz">riz</label>
+    </p>
+   </div>
+
+   <div class="input-field col s6">			  
+
+
+      <p>
+        <input type="checkbox" class="filled-in" id="tomates" value="tomates" name="nom[]" />
+        <label for="tomates">tomates</label>
+      </p>
+   </div>
+
+
+  	<div class="input-field col s6">			  
+    <p>
+      <input type="checkbox" class="filled-in" id="patates" value="patates" name="nom[]" />
+      <label for="patates">patates</label>
     </p>
    </div>
 
@@ -180,8 +178,8 @@
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="escargots" value="escargots" name="nom[]"/>
-      <label for="escargots">escargots</label>
+      <input type="checkbox" class="filled-in" id="huile" value="huile" name="nom[]"/>
+      <label for="huile">huile</label>
     </p>
    </div>
 
@@ -189,16 +187,16 @@
 
 
       <p>
-        <input type="checkbox" class="filled-in" id="ours polaire" value="ours polaire" name="nom[]" />
-        <label for="ours polaire">ours polaire</label>
+        <input type="checkbox" class="filled-in" id="oignons" value="oignons" name="nom[]" />
+        <label for="oignons">oignons</label>
       </p>
    </div>
 
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="lapin" value="lapin" name="nom[]" />
-      <label for="lapin">lapin</label>
+      <input type="checkbox" class="filled-in" id="gruyere" value="gruyere" name="nom[]" />
+      <label for="gruyere">gruyere</label>
     </p>
    </div>
 
@@ -206,20 +204,65 @@
 
   	<div class="input-field col s6">			  
     <p>
-      <input type="checkbox" class="filled-in" id="mouton" value="mouton" name="nom[]" />
-      <label for="mouton">mouton</label>
+      <input type="checkbox" class="filled-in" id="pates" value="pates" name="nom[]" />
+      <label for="pates">pates</label>
     </p>
    </div>
 
-   <br>
+    <div class="input-field col s6">        
+    <p>
+      <input type="checkbox" class="filled-in" id="bouillon" value="bouillon" name="nom[]" />
+      <label for="bouillon">bouillon</label>
+    </p>
+   </div>
 
-   <!-- Nouvel Ingrédient -->
 
+    <div class="input-field col s6">        
+    <p>
+      <input type="checkbox" class="filled-in" id="épinards" value="épinards" name="nom[]" />
+      <label for="épinards">épinards</label>
+    </p>
+   </div>
+
+
+    <div class="input-field col s6">        
+    <p>
+      <input type="checkbox" class="filled-in" id="potimarron" value="potimarron" name="nom[]"/>
+      <label for="potimarron">potimarron</label>
+    </p>
+   </div>
+
+   <div class="input-field col s6">       
+
+
+      <p>
+        <input type="checkbox" class="filled-in" id="blette" value="blette" name="nom[]" />
+        <label for="blette">blette</label>
+      </p>
+   </div>
+
+
+    <div class="input-field col s6">        
+    <p>
+      <input type="checkbox" class="filled-in" id="poireau" value="poireaux" name="nom[]" />
+      <label for="poireaux">poireaux</label>
+    </p>
+   </div>
+
+
+    <div class="input-field col s6">        
+    <p>
+      <input type="checkbox" class="filled-in" id="asperge" value="asperge" name="nom[]" />
+      <label for="asperge">asperge</label>
+    </p>
+   </div>
+
+
+<!-- Rajout d'un ingrédient supplémentaire -->
     <div class="input-field col s6">
-      <input name="nomIng" id="nom" type="text" class="validate">
+      <input name="nomIng" id="nomIng" type="text" class="validate">
       <label for="nomIng">Nouvel ingrédient</label>
     </div>
-
 
 
 
@@ -229,7 +272,7 @@
 		
 
 		<div class="col s6 offset s3">
-		
+		<!-- bouton d'ajout -->
 		</br>
 		</br>
 		 <button class="btn waves-effect waves-light col red darken-4" type="submit" name="action">Ajouter
@@ -238,6 +281,11 @@
 			</div>
       
 	</form>
+
+</div>
+
+
+
 	  
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
